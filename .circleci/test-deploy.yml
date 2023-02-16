@@ -1,6 +1,6 @@
 version: 2.1
 orbs:
-  OSV Scanner: ahmedmohamed2323/OSV Scanner@dev:<<pipeline.git.revision>>
+  osv_scanner: ahmedmohamed2323/osv_scanner@dev:<<pipeline.git.revision>>
   orb-tools: circleci/orb-tools@11.5
 
 filters: &filters
@@ -16,7 +16,7 @@ jobs:
     steps:
       - checkout
       # Run your orb's commands to validate them.
-      - OSV Scanner/greet
+      - osv_scanner/greet
 workflows:
   test-deploy:
     jobs:
@@ -26,7 +26,7 @@ workflows:
       - orb-tools/pack:
           filters: *filters
       - orb-tools/publish:
-          orb-name: ahmedmohamed2323/OSV Scanner
+          orb-name: ahmedmohamed2323/osv_scanner
           vcs-type: << pipeline.project.type >>
           pub-type: production
           requires:
