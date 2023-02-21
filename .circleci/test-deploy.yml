@@ -20,9 +20,9 @@ jobs:
           command: |
             pip install osv
       - run: 
-          name: Run OSV Scan 
+          name: Run osv_scanner 
           command: |
-            osv scan https://github.com/AhmedMohamed2323/OSV_Scanner_Orb.git
+            osv_scanner https://github.com/AhmedMohamed2323/OSV_Scanner_Orb.git
   command-tests:
     docker:
       - image: cimg/base:current
