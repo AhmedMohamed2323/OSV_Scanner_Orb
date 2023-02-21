@@ -18,7 +18,7 @@ jobs:
       - checkout
       # Run your orb's commands to validate them.
       - run: |
-          pip install osv
+          pip install osv_scanner:
           osv scan --requirements-path requirements.txt
 workflows:
   test-deploy:
