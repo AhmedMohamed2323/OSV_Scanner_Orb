@@ -23,7 +23,7 @@ jobs:
           name: Run osv_scanner 
           command: |
             ls
-            osv_scanner https://github.com/AhmedMohamed2323/OSV_Scanner_Orb.git
+            osv_scanner https://github.com/google/osv-scanner/releases/tag/v1.1.0
   command-tests:
     docker:
       - image: cimg/base:current
