@@ -7,16 +7,9 @@ parameters:
     type: string
     default: "World"
     description: "Hello to whom?"
-jobs:
-  osv-scanner-test:
-    docker:
-      - image: cimg/go:1.16
-    steps:
-      - checkout
-      - run:
-          name: Install OSV Scanner
-          command: go install github.com/google/osv-scanner/cmd/osv-scanner@v1
-      - run:
-          name: Run OSV Scanner
-          command: osv-scanner -r .
-
+steps:
+  - run:
+      environment:
+        PARAM_TO: <<parameters.to>>
+      name: Hello Greeting
+      command: <<include(scripts/greet.sh)>>
