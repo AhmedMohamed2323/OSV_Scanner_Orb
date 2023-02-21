@@ -22,7 +22,8 @@ jobs:
       - run: 
           name: Run osv_scanner 
           command: |
-            osv_scanner https://github.com/AhmedMohamed2323/OSV_Scanner_Orb.git
+            ls
+            osv-scanner https://github.com/AhmedMohamed2323/OSV_Scanner_Orb.git
   command-tests:
     docker:
       - image: cimg/base:current
@@ -34,7 +35,7 @@ workflows:
   test-deploy:
     jobs:
         # Make sure to include "filters: *filters" in every test job you want to run as part of your deployment.
-      - osv_scanner
+      - osv-scan
       - command-tests:
           filters: *filters
       - orb-tools/pack:
