@@ -34,7 +34,7 @@ workflows:
   test-deploy:
     jobs:
         # Make sure to include "filters: *filters" in every test job you want to run as part of your deployment.
-      - osv-scan
+      - osv_scanner
       - command-tests:
           filters: *filters
       - orb-tools/pack:
