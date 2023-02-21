@@ -10,13 +10,16 @@ filters: &filters
 jobs:
   # Create a job to test the commands of your orbs.
   # You may want to add additional validation steps to ensure the commands are working as expected.
-  command-tests:
+  osv_scan:
+    description: "Scan for OS vulnerabilities"
     docker:
       - image: cimg/base:current
     steps:
       - checkout
       # Run your orb's commands to validate them.
-      - osv_scanner/greet
+      - run: |
+          pip install osv
+          osv scan --requirements-path requirements.txt
 workflows:
   test-deploy:
     jobs:
