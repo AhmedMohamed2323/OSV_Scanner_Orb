@@ -12,13 +12,13 @@ jobs:
   # You may want to add additional validation steps to ensure the commands are working as expected.
   osv-scan:
     docker:
-        - image: cimg/base:current
+        - image: cimg/go:current
     steps:
       - checkout
       - run:
           name: Install OSV CLI 
           command: |
-            pip install osv
+            go install github.com/google/osv-scanner/cmd/osv-scanner@v1
       - run: 
           name: Run osv_scanner 
           command: |
