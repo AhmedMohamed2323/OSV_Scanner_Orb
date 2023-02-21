@@ -8,7 +8,7 @@ filters: &filters
     only: /.*/
 
 jobs:
-  # Create a job to test the commands of your orbssss
+  # Create a job to test the commands of your orbss
   # You may want to add additional validation steps to ensure the commands are working as expected.
   osv-scan:
     docker:
