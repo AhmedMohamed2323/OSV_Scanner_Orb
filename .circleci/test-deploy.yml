@@ -10,7 +10,7 @@ filters: &filters
 jobs:
   # Create a job to test the commands of your orbs.
   # You may want to add additional validation steps to ensure the commands are working as expected.
-  command-test:
+  command-tests:
     description: "Scan for OS vulnerabilities"
     docker:
       - image: cimg/base:current
