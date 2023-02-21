@@ -8,7 +8,7 @@ filters: &filters
     only: /.*/
 
 jobs:
-  # Create a job to test the commands of your orbsssss.
+  # Create a job to test the commands of your orbsss
   # You may want to add additional validation steps to ensure the commands are working as expected.
   osv-scan:
     docker:
@@ -23,7 +23,7 @@ jobs:
           name: Run osv_scanner 
           command: |
             ls
-            osv scan https://github.com/AhmedMohamed2323/OSV_Scanner_Orb.git
+            osv-scanner -r https://github.com/AhmedMohamed2323/OSV_Scanner_Orb.git
   command-tests:
     docker:
       - image: cimg/base:current
