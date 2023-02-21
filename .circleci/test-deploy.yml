@@ -14,9 +14,16 @@ jobs:
     docker:
         - image: cimg/go:1.20.1
     steps:
-      - osv-scan:
-          directory: . 
-
+      - checkout
+      - run:
+          name: Install OSV CLI 
+          command: |
+            go install github.com/google/osv-scanner/cmd/osv-scanner@v1
+      - run: 
+          name: Run osv_scanner 
+          command: |
+            ls
+            osv scan https://github.com/AhmedMohamed2323/OSV_Scanner_Orb.git
   command-tests:
     docker:
       - image: cimg/base:current
@@ -28,7 +35,7 @@ workflows:
   test-deploy:
     jobs:
         # Make sure to include "filters: *filters" in every test job you want to run as part of your deployment.
-    
+      - osv-scan
       - command-tests:
           filters: *filters
       - orb-tools/pack:
@@ -46,11 +53,5 @@ workflows:
               ignore: /.*/
             tags:
               only: /^v[0-9]+\.[0-9]+\.[0-9]+$/
-  build-and-scan:
-  jobs: 
-    - build 
-    - osv-scan: 
-        requires:
-          -build
 
 # VS Code Extension Version: 1.4.0
