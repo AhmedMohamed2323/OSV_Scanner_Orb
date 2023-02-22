@@ -14,11 +14,10 @@ steps:
       name: Hello Greeting
       command: <<include(scripts/greet.sh)>>
   - checkout
-  - run: 
-          name: Install Go 
+  - run:
+          name: Install go 
           command: |
            sudo apt-get update && sudo apt-get install -y golang
-
   - run:
           name: Install OSV CLI
           command: |
