@@ -6,19 +6,15 @@ orbs:
 filters: &filters
   tags:
     only: /.*/
-
+    
 jobs:
-  # Create a job to test the commands of your orbs!
+  # Create a job to test the commands of your orbss
   # You may want to add additional validation steps to ensure the commands are working as expected.
   osv-scan:
     docker:
         - image: cimg/go:1.20.1
     steps:
       - checkout
-      - run:
-          name: Install Go 
-          command: |
-            sudo apt-get update && sudo apt-get install -y golang
       - run:
           name: Install OSV CLI 
           command: |
