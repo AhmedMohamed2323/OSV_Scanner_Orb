@@ -2,19 +2,14 @@ description: >
   This command will echo orbs.
 # What will this command do?
 # Descriptions should be short, simple, and clear.
-version: 2.1
-
-orbs:
-  osv_scanner: ahmedmohamed2323/osv_scanner@dev:<<pipeline.git.revision>>
-
-jobs:
-  build:
-    docker:
-      - image: cimg/base:current
-    steps:
-      - checkout
-      - run:
-          name: Scan for OS vulnerabilities
-          command: |
-            osv scan --path /app
-      # add more steps here
+parameters:
+  to:
+    type: string
+    default: "World"
+    description: "Hello to whom?"
+steps:
+  - run:
+      environment:
+        PARAM_TO: <<parameters.to>>
+      name: Hello Greeting
+      command: <<include(scripts/greet.sh)>>
