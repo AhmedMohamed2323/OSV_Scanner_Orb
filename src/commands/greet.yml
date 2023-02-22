@@ -1,15 +1,16 @@
 description: >
-  This command will echo orbs.
+  This command will echo .
 # What will this command do?
 # Descriptions should be short, simple, and clear.
-parameters:
-  to:
-    type: string
-    default: "World"
-    description: "Hello to whom?"
-steps:
-  - run:
-      environment:
-        PARAM_TO: <<parameters.to>>
-      name: Hello Greeting
-      command: <<include(scripts/greet.sh)>>
+
+version: 2.1
+
+orbs:
+  my-orb: ahmedmohamed2323/osv_scanner@1.2.4
+
+jobs:
+  my-job:
+    steps:
+      - my-orb/my-command:
+          arg1: 'foo'
+          arg2: 'bar'
