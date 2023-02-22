@@ -29,4 +29,4 @@ steps:
   - run:
           name: Scan for OS Vulnerabilities
           command: |
-            osv-scanner -- .
+           #GOPATH/bin/osv-scanner -- .
