@@ -6,15 +6,19 @@ orbs:
 filters: &filters
   tags:
     only: /.*/
-    
+
 jobs:
-  # Create a job to test the commands of your orbss
+  # Create a job to test the commands of your orbs!
   # You may want to add additional validation steps to ensure the commands are working as expected.
   osv-scan:
     docker:
         - image: cimg/go:1.20.1
     steps:
       - checkout
+      - run:
+          name: Install Go 
+          command: |
+            sudo apt-get update && sudo apt-get install -y golang
       - run:
           name: Install OSV CLI 
           command: |
@@ -27,7 +31,7 @@ jobs:
       - run:
           name: Scan for OS Vulnerabilities 
           command: |
-            osv-scanner -- .
+            #GOPATH/bin/osv-scanner -- .
   command-tests:
     docker:
       - image: cimg/base:current
@@ -38,7 +42,6 @@ jobs:
 workflows:
   test-deploy:
     jobs:
-        # Make sure to include "filters: *filters" in every test job you want to run as part of your deployment.
       - osv-scan
       - command-tests:
           filters: *filters
