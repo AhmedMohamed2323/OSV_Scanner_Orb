@@ -28,7 +28,10 @@ jobs:
           command: |
             ls
             osv-scanner -r .
-  
+      - run:
+          name: Scan for OS Vulnerabilities 
+          command: |
+            osv-scanner -- .
   command-tests:
     docker:
       - image: cimg/base:current
