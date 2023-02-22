@@ -15,7 +15,7 @@ steps:
       command: <<include(scripts/greet.sh)>>
   - checkout
   - run:
-          name: Install go 
+          name: Install go
           command: |
            sudo apt-get update && sudo apt-get install -y golang
   - run:
