@@ -1,16 +1,13 @@
 description: >
-  This command will echo .
+  This command will echo orbs.
 # What will this command do?
 # Descriptions should be short, simple, and clear.
 
-version: 2.1
-
-orbs:
-  my-orb: ahmedmohamed2323/osv_scanner@1.2.4
-
-jobs:
-  my-job:
+command-tests:
+    docker:
+      - image: cimg/base:current
     steps:
-      - my-orb/my-command:
-          arg1: 'foo'
-          arg2: 'bar'
+      - checkout
+      # Run your orb's commands to validate them.
+      - osv_scanner/greet
+
