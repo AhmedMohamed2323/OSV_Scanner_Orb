@@ -1,7 +1,7 @@
 description: >
   This command will echo orbssssssssssssssssss.
 # What will this command do?
-# Descriptions should be short, simple, and clearrr.
+# Descriptions should be short, simple, and clear.
 parameters:
   to:
     type: string
