@@ -17,7 +17,3 @@ steps:
           name: Run osv_scanner
           command: |
             osv-scanner -r .
-  - run:
-          name: Scan for OS Vulnerabilities
-          command: |
-            osv-scanner -- .
