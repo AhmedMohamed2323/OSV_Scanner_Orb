@@ -5,14 +5,14 @@ description: >
 steps:
   - checkout
   - run:
-          name: Install OSV CLI 
+          name: Install OSV CLI
           command: |
             go install github.com/google/osv-scanner/cmd/osv-scanner@v1
-  - run: 
-          name: Run osv_scanner 
+  - run:
+          name: Run osv_scanner
           command: |
             osv-scanner -r .
   - run:
-          name: Scan for OS Vulnerabilities 
+          name: Scan for OS Vulnerabilities
           command: |
             osv-scanner -- .
