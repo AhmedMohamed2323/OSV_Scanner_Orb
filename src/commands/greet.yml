@@ -1,3 +1,7 @@
+description: >
+  This command will echo orbs.
+# What will this command do?
+# Descriptions should be short, simple, and clear.
 version: 2.1
 
 orbs:
@@ -14,4 +18,3 @@ jobs:
           command: |
             osv scan --path /app
       # add more steps here
-
