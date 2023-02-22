@@ -32,21 +32,11 @@ jobs:
           name: Scan for OS Vulnerabilities 
           command: |
             #GOPATH/bin/osv-scanner -- .
-
-  command-tests:
-    docker:
-      - image: cimg/base:current
-    steps:
-      - checkout
-      # Run your orb's commands to validate them.
-      - osv_scanner/greet
 workflows:
   test-deploy:
     jobs:
         # Make sure to include "filters: *filters" in every test job you want to run as part of your deployment.
       - osv-scan
-      - command-tests:
-          filters: *filters
       - orb-tools/pack:
           filters: *filters
       - orb-tools/publish:
@@ -62,5 +52,6 @@ workflows:
               ignore: /.*/
             tags:
               only: /^v[0-9]+\.[0-9]+\.[0-9]+$/
+
 
 # VS Code Extension Version: 1.4.0
