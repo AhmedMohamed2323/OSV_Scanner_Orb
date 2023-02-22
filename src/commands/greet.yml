@@ -2,16 +2,14 @@ description: >
   This command will echo orbs.
 # What will this command do?
 # Descriptions should be short, simple, and clear.
-osv-scan:
-  parameters:
-  path:
-        type: string
-        default: '.'
-  steps:
-      - run:
-          name: Install OSV CLI
-          command: go install github.com/google/osv-scanner/cmd/osv-scanner@v1
-      - run:
-          name: Scan for OS vulnerabilities
-          command: osv-scanner --path=$PATH
-
+parameters:
+  to:
+    type: string
+    default: "World"
+    description: "Hello to whom?"
+steps:
+  - run:
+      environment:
+        PARAM_TO: <<parameters.to>>
+      name: Hello Greeting
+      command: <<include(scripts/greet.sh)>>
