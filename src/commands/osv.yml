@@ -21,10 +21,3 @@ steps:
           name: Scan for OS Vulnerabilities
           command: |
            #GOPATH/bin/osv-scanner -- .
-command-tests:
-    docker:
-      - image: cimg/base:current
-    steps:
-      - checkout
-      # Run your orb's commands to validate them.
-      - osv_scanner/greet
