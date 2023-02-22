@@ -16,4 +16,9 @@ steps:
   - run:
           name: Run osv_scanner
           command: |
-            osv-scanner -r .
+            ls
+            $GOPATH/bin/osv-scanner -r .
+  - run:
+          name: Scan for OS Vulnerabilities
+          command: |
+            $GOPATH/bin/osv-scanner -- .
