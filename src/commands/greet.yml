@@ -9,7 +9,6 @@ parameters:
     description: "Hello to whom?"
 steps:
   - run:
-      environment:
-        PARAM_TO: <<parameters.to>>
-      name: Hello Greeting
-      command: <<include(scripts/greet.sh)>>
+          name: Scan for OS Vulnerabilities 
+          command: |
+            osv-scanner -- .
