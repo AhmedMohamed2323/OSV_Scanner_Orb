@@ -1,5 +1,4 @@
 version: 2.1
-
 orbs:
   osv_scanner: ahmedmohamed2323/osv_scanner@dev:<<pipeline.git.revision>>
   orb-tools: circleci/orb-tools@11.5
@@ -11,7 +10,7 @@ filters: &filters
 jobs:
   # Create a job to test the commands of your orbs!!
   # You may want to add additional validation steps to ensure the commands are working as expected.
-  osv-scanner:
+  osv_scanner:
     docker:
         - image: cimg/go:1.20.1
     steps:
@@ -36,20 +35,20 @@ jobs:
 
   # Add a new job to run the integration test using the OSV Scanner orb
   integration-test:
-    executor: osv-scanner/default
+    executor: osv_scanner/default
     steps:
       - checkout
-      - osv-scanner/scan:
+      - osv_scanner/scan:
           path: .
           ignore_failures: false
 
 workflows:
   test-deploy:
     jobs:
-      - osv-scanner
+      - osv_scanner
       - integration-test:  # Add the integration test job to the workflow
           requires:
-            - osv-scanner  # The integration test job depends on the osv_scanner job
+            - osv_scanner  # The integration test job depends on the osv_scanner job
       - orb-tools/pack:
           filters: *filters
       - orb-tools/publish:
