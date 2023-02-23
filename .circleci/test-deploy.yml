@@ -8,36 +8,19 @@ filters: &filters
     only: /.*/
 
 jobs:
-  # Create a job to test the commands of your orbs!
-  # You may want to add additional validation steps to ensure the commands are working as expected.
   osv-scan:
-    docker:
-        - image: cimg/go:1.20.1
+    # Define a job that uses the osv_scanner orb
+    executor: osv_scanner/default
     steps:
-      - checkout
-      - run:
-          name: Install Go 
-          command: |
-            sudo apt-get update && sudo apt-get install -y golang
-      - run:
-          name: Install OSV CLI 
-          command: |
-            go install github.com/google/osv-scanner/cmd/osv-scanner@v1
-      - run: 
-          name: Run osv_scanner 
-          command: |
-            ls
-            osv-scanner -r .
-      - run:
-          name: Scan for OS Vulnerabilities 
-          command: |
-            #GOPATH/bin/osv-scanner -- .
+      - osv_scanner/scan:
+          path: .
 
 workflows:
   test-deploy:
     jobs:
-        # Make sure to include "filters: *filters" in every test job you want to run as part of your deployment.
-      - osv-scan
+      - osv-scan:
+          # Apply the filters defined in the filters block to this job
+          filters: *filters
       - orb-tools/pack:
           filters: *filters
       - orb-tools/publish:
@@ -52,5 +35,7 @@ workflows:
               ignore: /.*/
             tags:
               only: /^v[0-9]+\.[0-9]+\.[0-9]+$/
+
+
 
 # VS Code Extension Version: 1.4.0
