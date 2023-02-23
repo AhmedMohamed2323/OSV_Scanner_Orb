@@ -1,5 +1,4 @@
 version: 2.1
-
 description: >
   Orbs are shareable packages of CircleCI configuration you can use to simplify your builds. Choose from the many partner, community, or CircleCI authored orbs in our public registry below, or create a private orb that’s exclusive to your organization.
 # What will your orb allow users to accomplish?
