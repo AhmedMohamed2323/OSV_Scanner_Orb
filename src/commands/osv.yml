@@ -23,7 +23,8 @@ steps:
   - run: 
           name: Specify Lockfile(s)
           command: |
-            osv-scanner --lockfile 'requirements.txt:/path/to/your/extra-requirements.txt'
+            osv-scanner <<lockfile=/path/to/your/package-lock.json --lockfile=/path/to/another/Cargo.lock>>
+
 
 
  
