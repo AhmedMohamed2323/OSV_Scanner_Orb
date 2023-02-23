@@ -20,10 +20,7 @@ steps:
           name: Scan for OS Vulnerabilities
           command: |
             #GOPATH/bin/osv-scanner -- .
-  - run: 
-          name: Specify Lockfile(s)
-          command: |
-            osv-scanner <<lockfile=/path/to/your/package-lock.json --lockfile=/path/to/another/Cargo.lock>>
+
 
 
 
