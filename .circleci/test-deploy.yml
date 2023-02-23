@@ -12,7 +12,7 @@ jobs:
     # Define a job that uses the osv_scanner orb
     executor: osv_scanner/default
     steps:
-      - osv_scanner/scan:
+      - osv-scanner:
           path: .
 
 workflows:
