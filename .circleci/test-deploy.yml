@@ -1,4 +1,5 @@
 version: 2.1
+
 orbs:
   osv_scanner: ahmedmohamed2323/osv_scanner@dev:<<pipeline.git.revision>>
   orb-tools: circleci/orb-tools@11.5
