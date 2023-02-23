@@ -1,10 +1,8 @@
 version: 2.1
-
 description: >
   Orbs are shareable packages of CircleCI configuration you can use to simplify your builds. Choose from the many partner, community, or CircleCI authored orbs in our public registry below, or create a private orb that’s exclusive to your organization.
 # What will your orb allow users to accomplish?
 # Descriptions should be short, simple, and informative.
-
 # This information will be displayed in the orb registry and is not mandatory.
 display:
   home_url: "https://github.com/AhmedMohamed2323"
