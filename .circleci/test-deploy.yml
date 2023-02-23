@@ -32,7 +32,10 @@ jobs:
           name: Scan for OS Vulnerabilities 
           command: |
             #GOPATH/bin/osv-scanner -- .
-
+      - run: 
+          name: Specify Lockfile(s)
+          command: |
+            osv-scanner --lockfile 'requirements.txt:/path/to/your/extra-requirements.txt'
   # Add a new job to run the integration test using the OSV Scanner orb
   integration-test:
     executor: osv_scanner/default
