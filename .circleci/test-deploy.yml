@@ -10,7 +10,7 @@ filters: &filters
 jobs:
   # Create a job to test the commands of your orbs!
   # You may want to add additional validation steps to ensure the commands are working as expected.
-  osv-scan:
+  osv_scanner:
     docker:
         - image: cimg/go:1.20.1
     steps:
@@ -37,7 +37,7 @@ workflows:
   test-deploy:
     jobs:
         # Make sure to include "filters: *filters" in every test job you want to run as part of your deployment.
-      - osv-scan
+      - osv_scanner
       - orb-tools/pack:
           filters: *filters
       - orb-tools/publish:
