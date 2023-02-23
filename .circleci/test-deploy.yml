@@ -33,11 +33,22 @@ jobs:
           command: |
             #GOPATH/bin/osv-scanner -- .
 
+  # Add a new job to run the integration test using the OSV Scanner orb
+  integration-test:
+    executor: osv_scanner/default
+    steps:
+      - checkout
+      - osv_scanner/scan:
+          path: .
+          ignore_failures: false
+
 workflows:
   test-deploy:
     jobs:
-        # Make sure to include "filters: *filters" in every test job you want to run as part of your deployment.
       - osv_scanner
+      - integration-test:  # Add the integration test job to the workflow
+          requires:
+            - osv_scanner  # The integration test job depends on the osv_scanner job
       - orb-tools/pack:
           filters: *filters
       - orb-tools/publish:
