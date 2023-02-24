@@ -17,7 +17,10 @@ jobs:
 workflows:
   test-deploy:
     jobs:
-      - osv_scanner
+      - osv_scanner:
+          filters: *filters
+          tags: 
+            only: /.*/
       - orb-tools/pack:
           filters: *filters
       - orb-tools/publish:
