@@ -28,3 +28,4 @@ integration-test:
       - osv_scanner/scan:
           path: .
           ignore_failures: false
+          
