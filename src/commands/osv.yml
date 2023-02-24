@@ -3,25 +3,22 @@ description: >
 
 # What will this command do?
 # Descriptions should be short, simple, and clear.
-# myorb.yml
-version: 2.1
-
 commands:
   osv_scanner/scan:
     steps:
       - run:
-          name: Run osv_scanner 
+          name: Install go
           command: |
-            ls
+           sudo apt-get update && sudo apt-get install -y golang
+      - run:
+          name: Install OSV CLI
+          command: |
+            go install github.com/google/osv-scanner/cmd/osv-scanner@v1
+      - run:
+          name: Run osv_scanner
+          command: |
             osv-scanner -r .
       - run:
-          name: Scan for OS Vulnerabilities 
+          name: Scan for OS Vulnerabilities
           command: |
             #GOPATH/bin/osv-scanner -- .
-      - run: 
-          name: Specify Lockfile(s)
-          command: |
-            osv-scanner --lockfile=/path/to/your/package-lock.json --lockfile=/path/to/another/Cargo.lock
-
-
-
