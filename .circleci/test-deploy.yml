@@ -8,11 +8,9 @@ filters: &filters
     only: /.*/
 
 jobs:
-  # Create a job to test the commands of your orbs!!
-  # You may want to add additional validation steps to ensure the commands are working as expected.
   osv_scanner:
     docker:
-        - image: cimg/go:1.20.1
+      - image: cimg/go:1.20.1
     steps:
       - checkout
       - run:
@@ -31,24 +29,19 @@ jobs:
       - run:
           name: Scan for OS Vulnerabilities 
           command: |
-            #GOPATH/bin/osv-scanner -- .
-      - run: 
-          name: Specify Lockfile(s)
-          command: |
-            osv-scanner --lockfile=/path/to/your/package-lock.json --lockfile=/path/to/another/Cargo.lock
+            osv-scanner -r .
 
   integration-test:
     executor: osv_scanner/default
     steps:
       - checkout
-      - osv-scanner
+      - osv_scanner/scan
 
 workflows:
   test-deploy:
     jobs:
       - osv_scanner
-      - integration-test  # Add the integration test job to the workflow
-            # The integration test job depends on the osv_scanner job
+      - integration-test
       - orb-tools/pack:
           filters: *filters
       - orb-tools/publish:
