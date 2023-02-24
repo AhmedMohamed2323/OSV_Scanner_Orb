@@ -38,7 +38,7 @@ jobs:
             osv-scanner --lockfile=/path/to/your/package-lock.json --lockfile=/path/to/another/Cargo.lock
 
   # Add a new job to run the integration test using the OSV Scanner orb
-  integration-test:
+integration-test:
     executor: osv_scanner/default
     steps:
       - checkout
