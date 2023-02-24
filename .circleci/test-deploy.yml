@@ -37,7 +37,7 @@ jobs:
           command: |
             osv-scanner --lockfile=/path/to/your/package-lock.json --lockfile=/path/to/another/Cargo.lock
 
-    integration-test:
+integration-test:
       executor: osv_scanner/default
       steps:
         - checkout
