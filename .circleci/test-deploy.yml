@@ -36,7 +36,7 @@ jobs:
           name: Specify Lockfile(s)
           command: |
             osv-scanner --lockfile=/path/to/your/package-lock.json --lockfile=/path/to/another/Cargo.lock
-            
+
   # Add a new job to run the integration test using the OSV Scanner orb
   integration-test:
     executor: osv_scanner/default
@@ -67,5 +67,6 @@ workflows:
               ignore: /.*/
             tags:
               only: /^v[0-9]+\.[0-9]+\.[0-9]+$/
+
 
 # VS Code Extension Version: 1.4.0

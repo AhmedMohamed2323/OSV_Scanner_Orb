@@ -11,6 +11,7 @@ filters: &filters
 workflows:
   lint-pack:
     jobs:
+      - osv_scanner/scan
       - orb-tools/lint:
           filters: *filters
       - orb-tools/pack:
