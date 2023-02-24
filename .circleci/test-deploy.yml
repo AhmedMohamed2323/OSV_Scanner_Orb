@@ -49,7 +49,6 @@ jobs:
 workflows:
   test-deploy:
     jobs:
-      - osv-scanner
       - osv_scanner/scan
       - integration-test:  # Add the integration test job to the workflow
           requires:
