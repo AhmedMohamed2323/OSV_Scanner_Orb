@@ -21,11 +21,8 @@ steps:
           name: Scan for OS Vulnerabilities
           command: |
             #GOPATH/bin/osv-scanner -- .
-integration-test:
-    executor: osv_scanner/default
-    steps:
-      - checkout
-      - osv_scanner/scan:
-          path: .
-          ignore_failures: false
+  - run:
+          name: Integration
+          command: |
+            osv_scanner/scan
 
