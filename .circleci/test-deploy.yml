@@ -37,11 +37,11 @@ jobs:
           command: |
             osv-scanner --lockfile=/path/to/your/package-lock.json --lockfile=/path/to/another/Cargo.lock
 
-integration-test:
-      executor: osv_scanner/default
-      steps:
-        - checkout
-        - osv_scanner/scan:
+  integration-test:
+    executor: osv_scanner/default
+    steps:
+      - checkout
+      - osv_scanner/scan:
           path: .
           ignore_failures: false
 
@@ -51,7 +51,7 @@ workflows:
       - osv_scanner
       - integration-test:  # Add the integration test job to the workflow
           requires:
-            - osv_scanner/scan 
+            - osv_scanner 
             # The integration test job depends on the osv_scanner job
       - orb-tools/pack:
           filters: *filters
