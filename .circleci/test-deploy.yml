@@ -49,7 +49,7 @@ workflows:
   test-deploy:
     jobs:
       - osv_scanner
-      - integration-test:  # Add the integration test job to the workflow
+      - integration-test  # Add the integration test job to the workflow
             # The integration test job depends on the osv_scanner job
       - orb-tools/pack:
           filters: *filters
