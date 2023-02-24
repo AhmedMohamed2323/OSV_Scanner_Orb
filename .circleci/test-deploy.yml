@@ -51,7 +51,7 @@ workflows:
       - osv_scanner
       - integration-test:  # Add the integration test job to the workflow
           requires:
-            - osv_scanner 
+            - osv_scanner/scan
             # The integration test job depends on the osv_scanner job
       - orb-tools/pack:
           filters: *filters
