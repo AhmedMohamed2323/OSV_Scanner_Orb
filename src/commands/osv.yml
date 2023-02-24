@@ -20,9 +20,4 @@ steps:
   - run:
           name: Scan for OS Vulnerabilities
           command: |
-            #GOPATH/bin/osv-scanner -- .
-  - run:
-          name: Integration
-          command: |
-            osv_scanner/scan
-
+             osv_scanner/scan
