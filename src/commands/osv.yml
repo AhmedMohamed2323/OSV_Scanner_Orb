@@ -4,12 +4,24 @@ description: >
 # What will this command do?
 # Descriptions should be short, simple, and clear.
 steps:
-  - checkout
-  - run:
+ - checkout
+ - run:
+     name: Install go
+     command: |
+      sudo apt-get update && sudo apt-get install -y golang
+ - run:
+     name: Install OSV CLI
+     command: |
+       go install github.com/google/osv-scanner/cmd/osv-scanner@v1
+ - run:
+     name: Run osv_scanner
+     command: |
+       osv-scanner -r .
+ - run:
       name: Set up osv
       command: |
        export PATH="/opt/homebrew/Cellar/osv-scanner/1.2.0:$PATH"
-  - run:
-       name: Run osv and save output
-       command: |
+ - run:
+      name: Run osv and save output
+      command: |
         osv scan --output-file osv_output.txt
