@@ -8,7 +8,7 @@ filters: &filters
     only: /.*/
 
 jobs:
-  osv_scanner:
+  osv-scanner:
     docker:
       - image: cimg/go:1.20.1
     steps:
@@ -28,7 +28,7 @@ workflows:
   test-deploy:
     when: '\<< pipeline.job_status("osv_scanner") == "success" \>>'
     jobs:
-      - osv_scanner:
+      - osv-scanner:
           filters:
             tags:
               only: /.*/
