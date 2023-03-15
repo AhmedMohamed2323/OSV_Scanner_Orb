@@ -6,15 +6,6 @@ description: >
 steps:
   - checkout
   - run:
-          name: Install go
-          command: |
-           sudo apt-get update && sudo apt-get install -y golang
-  - run:
-          name: Install OSV CLI
-          command: |
-            go install github.com/google/osv-scanner/cmd/osv-scanner@v1
-  - run:
-          name: Run osv_scanner
-          command: |
-            osv-scanner -r .
-
+      name: Run osv and save output
+      command: |
+        osv scan --output-file osv_output.txt
