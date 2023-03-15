@@ -14,9 +14,9 @@ jobs:
     steps:
       - osv_scanner/osv
       - run:
-          name: Install osv scanner
+          name: Set up osv
           command: |
-            apk add --no-cache osv-scanner 
+            export PATH="/opt/homebrew/Cellar/osv-scanner/1.2.0
       - run:
           name: Run osv and save output
           command: |
