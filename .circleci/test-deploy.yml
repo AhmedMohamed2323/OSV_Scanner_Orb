@@ -23,10 +23,10 @@ jobs:
             grep "Expected Vulnerability 1" osv_output.txt
             grep "Expected Vulnerability 2" osv_output.txt
       # ... additional test steps ...
-      
+
 workflows:
   test-deploy:
-    when: << pipeline.job_status("osv_scanner") == "success" >>
+    when: '\<< pipeline.job_status("osv_scanner") == "success" \>>'
     jobs:
       - osv_scanner:
           filters:
