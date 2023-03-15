@@ -16,7 +16,7 @@ jobs:
       - run:
           name: Set up osv
           command: |
-            export PATH="/opt/homebrew/Cellar/osv-scanner/1.2.0
+            export PATH="/opt/homebrew/Cellar/osv-scanner/1.2.0/bin:$PATH"
       - run:
           name: Run osv and save output
           command: |
