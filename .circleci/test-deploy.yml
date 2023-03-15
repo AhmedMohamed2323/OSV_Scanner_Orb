@@ -28,6 +28,7 @@ jobs:
 
 workflows:
   test-deploy:
+    when: << pipeline.job_status("osv_scanner") == "success" >>
     jobs:
       - osv_scanner:
           filters:
