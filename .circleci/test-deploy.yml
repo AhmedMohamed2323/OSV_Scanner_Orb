@@ -13,11 +13,30 @@ jobs:
       - image: cimg/go:1.20.1
     steps:
       - osv_scanner/osv
+  integration-tests:
+    docker:
+      - image: cimg/go:1.20.1
+    steps:
+      - run:
+          name: Run osv and save output
+          command: |
+            osv scan --output-file osv_output.txt
+      - run:
+          name: Verify vulnerabilities were found
+          command: |
+            grep "Expected Vulnerability 1" osv_output.txt
+            grep "Expected Vulnerability 2" osv_output.txt
+      # ... additional test steps ...
+    when: << pipeline.job_status("osv_scanner") == "success" >>
 
 workflows:
   test-deploy:
     jobs:
       - osv_scanner:
+          filters:
+            tags:
+              only: /.*/
+      - integration-tests:
           filters:
             tags:
               only: /.*/
