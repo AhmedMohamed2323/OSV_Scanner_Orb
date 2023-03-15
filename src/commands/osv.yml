@@ -6,7 +6,10 @@ description: >
 steps:
   - checkout
   - run:
-          name: Run osv_scanner/osv and save ouput
-          command: |
-           osv scan --output-file osv_output.txt
-
+      name: Set up osv
+      command: |
+       export PATH="/opt/homebrew/Cellar/osv-scanner/1.2.0:$PATH"
+  - run:
+       name: Run osv and save output
+       command: |
+        osv scan --output-file osv_output.txt
