@@ -21,7 +21,3 @@ steps:
       name: Set up osv
       command: |
        export PATH="/opt/homebrew/Cellar/osv-scanner/1.2.0:$PATH"
- - run:
-      name: Show version
-      command: |
-        osv-scanner --version
