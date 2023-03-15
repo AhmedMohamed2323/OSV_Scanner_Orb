@@ -36,7 +36,7 @@ workflows:
           filters:
             tags:
               only: /.*/
-      - integration-tests
+      - integration-tests:
       - orb-tools/pack:
           filters: *filters
       - orb-tools/publish:
