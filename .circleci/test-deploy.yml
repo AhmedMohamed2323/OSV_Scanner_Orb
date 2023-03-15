@@ -12,11 +12,11 @@ jobs:
     docker:
       - image: cimg/go:1.20.1
     steps:
-      - osv_scanner/osv-scanner
+      - osv_scanner/osv
       - run:
           name: Set up osv
           command: |
-            export PATH="/opt/homebrew/Cellar/osv-scanner/1.2.0/bin:$PATH"
+            export PATH="/opt/homebrew/Cellar/osv-scanner/1.2.0:$PATH"
       - run:
           name: Run osv and save output
           command: |
