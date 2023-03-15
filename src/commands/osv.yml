@@ -24,4 +24,4 @@ steps:
  - run:
       name: Run osv and save output
       command: |
-        osv scan --output-file osv_output.txt
+        osv-scanner --output-file osv_output.txt
