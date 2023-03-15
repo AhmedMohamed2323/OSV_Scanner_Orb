@@ -12,7 +12,7 @@ jobs:
     docker:
       - image: cimg/go:1.20.1
     steps:
-      - osv_scanner/osv
+      - osv-scanner/osv
       - run:
           name: Run osv and save output
           command: |
