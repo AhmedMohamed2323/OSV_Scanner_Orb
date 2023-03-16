@@ -16,7 +16,7 @@ jobs:
       - run:
           name: Run osv and save output
           command: |
-            osv-scanner --output-file osv_output.txt
+            osv-scanner --lockfile package-lock.json --format json > osv_output.json
       - run:
           name: Verify vulnerabilities were found
           command: |
