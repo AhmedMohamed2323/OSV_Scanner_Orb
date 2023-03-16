@@ -17,3 +17,8 @@ steps:
      name: Run osv_scanner
      command: |
        osv-scanner -r .
+ - run:
+     name: List project directory contents
+     command: |
+       ls -l
+
