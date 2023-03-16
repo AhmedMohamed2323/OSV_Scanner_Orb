@@ -14,9 +14,14 @@ jobs:
     steps:
       - osv_scanner/osv
       - run:
-          name: Set up osv
+          name: Run osv and save output
           command: |
-            export PATH="/opt/homebrew/Cellar/osv-scanner/1.2.0/bin:$PATH"
+            osv-scanner --output-file osv_output.txt
+      - run:
+          name: Verify vulnerabilities were found
+          command: |
+            grep "Expected Vulnerability 1" osv_output.txt
+            grep "Expected Vulnerability 2" osv_output.txt
 
 workflows:
   test-deploy:
