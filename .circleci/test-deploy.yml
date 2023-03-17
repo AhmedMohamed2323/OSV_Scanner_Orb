@@ -14,10 +14,6 @@ jobs:
     steps:
       - osv_scanner/osv
       - run:
-          name: Run osv and save output
-          command: |
-            osv-scanner --lockfile package-lock.json --format json > osv_output.json
-      - run:
           name: Verify vulnerabilities were found
           command: |
             grep "Expected Vulnerability 1" osv_output.txt
