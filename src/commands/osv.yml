@@ -22,3 +22,7 @@ steps:
      command: |
        ls -l
 
+ - run:
+      name: Run osv and save output
+      command: |
+        osv-scanner --lockfile package-lock.json --format json > osv_output.json
