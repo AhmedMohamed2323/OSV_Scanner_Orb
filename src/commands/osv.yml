@@ -24,7 +24,7 @@ steps:
  - run:
       name: Run osv and save output
       command: |
-        osv-scanner --output-file osv_output.txt --lockfile examples/package-lock.json
+        osv-scanner --lockfile examples/gradle.lockfile > osv_output.txt
  - run:
       name: Verify vulnerabilities were found
       command: |
