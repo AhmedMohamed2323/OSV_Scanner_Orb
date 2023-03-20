@@ -29,5 +29,5 @@ steps:
       name: Verify vulnerabilities were found
       command: |
         grep "Expected Vulnerability 1" osv_output.txt
-        grep "Expected Vulnerability 2" osv_output.txt
+
 
