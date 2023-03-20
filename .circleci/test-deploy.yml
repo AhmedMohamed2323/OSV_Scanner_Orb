@@ -13,7 +13,14 @@ jobs:
       - image: cimg/go:1.20.1
     steps:
       - osv_scanner/osv
-
+  build:
+    environment:
+      FILE_PATH: ${{ parameters.file_path }}
+    steps:
+      - run:
+          name: Run OSV scan
+          command: |
+            ./osv_scan.sh "$FILE_PATH"
 workflows:
   test-deploy:
     when: '\<< pipeline.job_status("osv_scanner") == "success" \>>'
