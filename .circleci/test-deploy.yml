@@ -14,7 +14,6 @@ jobs:
     steps:
       - osv_scanner/osv
 
-
 workflows:
   test-deploy:
     when: '\<< pipeline.job_status("osv_scanner") == "success" \>>'
