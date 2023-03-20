@@ -20,7 +20,7 @@ steps:
  - run:
      name: Run osv and save output
      command: include osv_scan.sh
-     parameters: 
+     parameters:
        file_path:
           type: string
           default: yarn.lock
