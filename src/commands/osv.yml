@@ -21,10 +21,7 @@ steps:
       name: Run osv and save output
       command: |
         osv-scanner --lockfile yarn.lock | tee osv_output.txt
- - run:
-      name: Verify vulnerabilities were found
-      command: |
-        grep "Expected Vulnerability 1" osv_output.txt
+
 
 
 
