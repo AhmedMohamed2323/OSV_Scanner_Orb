@@ -29,6 +29,7 @@ workflows:
           filters:
             tags:
               only: /.*/
+      - build
       - orb-tools/pack:
           filters: *filters
       - orb-tools/publish:
