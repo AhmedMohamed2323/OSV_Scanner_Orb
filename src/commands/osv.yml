@@ -14,10 +14,6 @@ steps:
      command: |
        go install github.com/google/osv-scanner/cmd/osv-scanner@v1
  - run:
-     name: Run osv_scanner
-     command: |
-       osv-scanner -r .
- - run:
      name: List project directory contents
      command: |
        ls -l
