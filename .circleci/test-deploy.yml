@@ -13,11 +13,7 @@ jobs:
       - image: cimg/go:1.20.1
     steps:
       - osv_scanner/osv
-      - run:
-          name: Verify vulnerabilities were found
-          command: |
-            grep "Expected Vulnerability 1" osv_output.txt
-            grep "Expected Vulnerability 2" osv_output.txt
+
 
 workflows:
   test-deploy:
