@@ -24,7 +24,7 @@ steps:
           type: string
           default: yarn.lock
       command: |
-        osv-scanner --lockfile ${{parameters.file_path}} | tee osv_output.txt
+        osv-scanner --lockfile ${{ parameters.file_path }} 
 
 
 
