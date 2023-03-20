@@ -3,31 +3,27 @@ description: >
 
 # What will this command do?
 # Descriptions should be short, simple, and clear!
-jobs:
-  build:
-    parameters:
-      file_path:
-        type: string
-        default: yarn.lock
-    steps:
-      - checkout
-      - run:
-          name: Install go
-          command: |
-            sudo apt-get update && sudo apt-get install -y golang
-      - run:
-          name: Install OSV CLI
-          command: |
-            go install github.com/google/osv-scanner/cmd/osv-scanner@v1
-      - run:
-          name: List project directory contents
-          command: |
-            ls -l
-      - run:
-          name: Run osv and save output
-          command: !include src/scripts/osv_scan_command.sh
-          arguments:
-            - ${{ parameters.file_path }}
+steps:
+ - checkout
+ - run:
+     name: Install go
+     command: |
+      sudo apt-get update && sudo apt-get install -y golang
+ - run:
+     name: Install OSV CLI
+     command: |
+       go install github.com/google/osv-scanner/cmd/osv-scanner@v1
+ - run:
+     name: List project directory contents
+     command: |
+       ls -l
+ - run:
+     name: Run osv and save output
+     command: !include /src/scripts/osv_scan.sh
+     parameters:
+       file_path:
+          type: string
+          default: yarn.lock
 
 
 
