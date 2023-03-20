@@ -19,7 +19,7 @@ steps:
        ls -l
  - run:
      name: Run osv and save output
-     command: include osv_scan.sh
+     command: include src/scripts/osv_scan.sh
      parameters:
        file_path:
           type: string
