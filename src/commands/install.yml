@@ -12,3 +12,4 @@ steps:
   - run:
       name: OSV Scanner Download
       command: <<include(scripts/install-osv.sh)>>
+
