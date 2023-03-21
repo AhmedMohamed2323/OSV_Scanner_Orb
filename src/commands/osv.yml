@@ -8,8 +8,10 @@ steps:
  - checkout
  - run:
       name: Run osv and save output
+      environment: 
+        OSV_BIN: /bin/osv_scanner
       command: |
-        /bin/osv_scanner --lockfile << parameters.lock-file >> | tee osv_output.txt
+        $OSV_BIN --lockfile << parameters.lock-file >> | tee osv_output.txt
       parameters:
         lock-file:
           default: yarn.lock
