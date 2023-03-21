@@ -1,8 +1,8 @@
 description: |
   Install OSV Scanner
 parameters:
-  release-url: 
-    default: https://github.com/google/osv-scanner/releases/download/v1.2.0/osv-scanner_1.2.0_linux_amd64 
+  release-url:
+    default: https://github.com/google/osv-scanner/releases/download/v1.2.0/osv-scanner_1.2.0_linux_amd64
     type: string
   version:
     default: 1.5.2
@@ -10,6 +10,6 @@ parameters:
     type: string
 steps:
   - run:
-      name: OSV Scanner Download 
+      name: OSV Scanner Download
       command: >
         wget -O osv_scanner << parameters.release-url >>
