@@ -10,5 +10,6 @@ parameters:
     type: string
 steps:
   - run:
+      name: OSV Scanner Download 
       command: >
         wget -O osv_scanner https://github.com/google/osv-scanner/releases/download/v1.2.0/osv-scanner_1.2.0_linux_amd64
