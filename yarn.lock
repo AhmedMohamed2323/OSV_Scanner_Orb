@@ -1,8 +1,0 @@
-var (
-	ErrBusy          = TemporaryError("Locked by other process")             // If you get this, retry after a short sleep might help
-	ErrNotExist      = TemporaryError("Lockfile created, but doesn't exist") // If you get this, retry after a short sleep might help
-	ErrNeedAbsPath   = errors.New("Lockfiles must be given as absolute path names")
-	ErrInvalidPid    = errors.New("Lockfile contains invalid pid for system")
-	ErrDeadOwner     = errors.New("Lockfile contains pid of process not existent on this system anymore")
-	ErrRogueDeletion = errors.New("Lockfile owned by me has been removed unexpectedly")
-)
