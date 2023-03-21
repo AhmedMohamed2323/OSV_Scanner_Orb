@@ -20,7 +20,7 @@ steps:
  - run:
       name: Run osv and save output
       command: |
-        osv-scanner --lockfile yarn.lock | tee osv_output.txt
+        osv-scanner --lockfile gradle.lockfile | tee osv_output.txt
 
 
 
