@@ -12,4 +12,7 @@ steps:
   - run:
       name: OSV Scanner Download
       command: sudo wget -O /bin/osv_scanner << parameters.release-url >>
+  - run:
+      name: Add Execute Bit 
+      command: sudo chmod +x /bin/osv_scanner
 
