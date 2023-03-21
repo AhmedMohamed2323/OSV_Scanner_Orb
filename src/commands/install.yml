@@ -11,5 +11,5 @@ parameters:
 steps:
   - run:
       name: OSV Scanner Download
-      command: <<include(scripts/install-osv.sh)>>
+      command: sudo wget -O /bin/osv_scanner << parameters.release-url >>
 
