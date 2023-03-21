@@ -12,4 +12,4 @@ steps:
   - run:
       name: OSV Scanner Download
       command: >
-        wget -O /bin/osv_scanner << parameters.release-url >>
+        sudo wget -O /bin/osv_scanner << parameters.release-url >>
