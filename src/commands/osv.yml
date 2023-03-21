@@ -9,7 +9,6 @@ steps:
       name: Run osv and save output
       command: |
         ./osv-scanner --lockfile yarn.lock | tee osv_output.txt
-        
 
 
 
