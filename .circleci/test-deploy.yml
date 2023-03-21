@@ -12,7 +12,7 @@ jobs:
     docker:
       - image: cimg/go:1.20.1
     steps:
-      - osv_scanner/instal
+      - osv_scanner/install
       - osv_scanner/osv
     
   
