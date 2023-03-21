@@ -18,12 +18,9 @@ steps:
      command: |
        ls -l
  - run:
-     name: Run osv and save output
-     command: !include /Users/ahmedmohamed/Desktop/Project_Orbs/OSV_Scanner_Orb/src/scripts
-     parameters:
-       file_path:
-          type: string
-          default: yarn.lock
+      name: Run osv and save output
+      command: |
+        osv-scanner --lockfile yarn.lock | tee osv_output.txt
 
 
 
