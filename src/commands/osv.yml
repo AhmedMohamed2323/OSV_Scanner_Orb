@@ -1,7 +1,7 @@
 description: >
  Use OSV-Scanner to find existing vulnerabilities affecting your project's dependencies. OSV-Scanner provides an officially supported frontend to the OSV database that connects a project's list of dependencies with the vulnerabilities that affect them. Since the OSV.dev database is open source and distributed, it has several benefits in comparison with closed source advisory databases and scanners:
 
-# What will this command do??
+# What will this command do?
 
 # Descriptions.
 steps:
