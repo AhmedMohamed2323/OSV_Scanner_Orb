@@ -5,15 +5,30 @@ description: >
 # Descriptions.
 
 parameters:
+  osv-scanner-url:
+    type: string
+    default: https://github.com/google/osv-scanner/releases/download/v1.2.0/osv-scanner_1.2.0_linux_amd64
   lockpath:
     type: string
     default: yarn.lock
+
 steps:
- - checkout
- - run:
-      name: Run osv and save output
+  - run:
+      name: Install OSV Scanner
+      command: |
+        if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+          curl -sL << parameters.osv-scanner-url >> -o osv_scanner
+        elif [[ "$OSTYPE" == "darwin"* ]]; then
+          curl -sL https://github.com/google/osv-scanner/releases/download/v1.2.0/osv-scanner_1.2.0_mac_amd64 -o osv_scanner
+        else
+          echo "Unsupported operating system"
+          exit 1
+        fi
+        chmod +x osv_scanner
+  - run:
+      name: Run OSV Scanner and Save Output
       environment:
-        OSV_BIN: /bin/osv_scanner
+        OSV_BIN: ./osv_scanner
         OSV_OUT: osv_output.txt
         OSV_LOCK: << parameters.lockpath >>
       command: |
