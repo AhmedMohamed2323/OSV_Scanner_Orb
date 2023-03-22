@@ -15,9 +15,9 @@ steps:
       environment:
         OSV_BIN: /bin/osv_scanner
         OSV_OUT: osv_output.txt
+        FILE_PATH: << parameters.file_path >>
       command: |
-        $OSV_BIN --lockfile << parameteres.file_path >> | tee $OSV_OUT
-
+        $OSV_BIN --lockfile $FILE_PATH tee $OSV_OUT
 
 
 
