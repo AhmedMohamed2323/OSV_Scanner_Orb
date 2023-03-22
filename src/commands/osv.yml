@@ -1,13 +1,24 @@
 description: >
  Use OSV-Scanner to find existing vulnerabilities affecting your project's dependencies. OSV-Scanner provides an officially supported frontend to the OSV database that connects a project's list of dependencies with the vulnerabilities that affect them. Since the OSV.dev database is open source and distributed, it has several benefits in comparison with closed source advisory databases and scanners:
 
-# What will this command do?
-# Descriptions.
+#### What will this command do? 
+
+#This configuration defines a workflow that checks out the code, runs an open-source vulnerability scanner (OSV), and saves the output to a file.
+
+#### Descriptions?
+
+# The configuration starts by defining a single parameter called lockpath, which is a string type with a default value of yarn.lock. The purpose of this parameter is to allow the user to specify the path to the lock file for the package manager. If the user doesn't specify a value, the default value yarn.lock will be used.  
+# The steps section then defines the various steps of the workflow. The first step is to checkout the code, which means that CircleCI will clone the repository and check out the code at the current commit. The second step runs the OSV scanner and saves the output to a file. This step is defined using the run key and specifies the name of the step (Run osv and save output) and the command to run.
+# The environment section defines some environment variables that will be used in the command section. Specifically, it sets the path to the OSV binary (/bin/osv_scanner), the path to the output file (osv_output.txt), and the path to the lock file (the value of the lockpath parameter).
+# Finally, the command section specifies the actual command to run. It uses the $OSV_BIN environment variable to specify the path to the OSV binary, and the $OSV_LOCK environment variable to specify the path to the lock file. It then pipes the output of the OSV scanner to the tee command, which saves a copy of the output to the file specified by the $OSV_OUT environment variable (osv_output.txt). The | symbol indicates that the output of the previous command should be piped to the next command, while the tee command is used to both print the output to the console and save it to a file.
 
 parameters:
   lockpath:
     type: string
     default: yarn.lock
+  detectos:
+    type: string
+    default: detect-os.yml
 steps:
  - checkout
  - run:
@@ -16,5 +27,6 @@ steps:
         OSV_BIN: /bin/osv_scanner
         OSV_OUT: osv_output.txt
         OSV_LOCK: << parameters.lockpath >>
+        OSV_OS: << parameters.detectos >>
       command: |
         $OSV_BIN --lockfile $OSV_LOCK | tee $OSV_OUT
