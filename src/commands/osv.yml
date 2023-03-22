@@ -9,12 +9,15 @@ steps:
  - run:
       name: Run osv and save output
       parameters:
-        open-source:
+        file_path:
           type: string
           default: yarn.lock
       environment:
         OSV_BIN: /bin/osv_scanner
         OSV_OUT: osv_output.txt
-        LOCK_FILE: << parameters.open-source >>
       command: |
-        $OSV_BIN --lockfile $LOCK_FILE | tee $OSV_OUT
+        $OSV_BIN --lockfile yarn.lock | tee $OSV_OUT
+
+
+
+
