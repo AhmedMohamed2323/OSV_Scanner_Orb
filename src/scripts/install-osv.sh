@@ -1,1 +1,0 @@
-sudo wget -O /bin/osv_scanner << parameters.release-url >>
