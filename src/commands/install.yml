@@ -26,5 +26,5 @@ steps:
       environment:
       - ROSV: "<parameters.release-osv >>"
       name: Check for OS
-      command: "sudo wget -0 /bin/osv_scanner $ROSV"
+      command: "sudo /bin/osv_scanner $ROSV"
 
