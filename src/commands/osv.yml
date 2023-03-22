@@ -16,9 +16,6 @@ parameters:
   lockpath:
     type: string
     default: yarn.lock
-  detectos:
-    type: string
-    default: detect-os.yml
 steps:
  - checkout
  - run:
@@ -27,6 +24,5 @@ steps:
         OSV_BIN: /bin/osv_scanner
         OSV_OUT: osv_output.txt
         OSV_LOCK: << parameters.lockpath >>
-        OSV_OS: << parameters.detectos >>
       command: |
         $OSV_BIN --lockfile $OSV_LOCK | tee $OSV_OUT
