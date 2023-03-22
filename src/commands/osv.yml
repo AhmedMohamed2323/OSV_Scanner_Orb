@@ -16,9 +16,7 @@ steps:
         OSV_BIN: /bin/osv_scanner
         OSV_OUT: osv_output.txt
       command: |
-        $OSV_BIN --lockfile yarn.lock | tee $OSV_OUT
-
-
+        $OSV_BIN --lockfile $file_path | tee $OSV_OUT
 
 
 
