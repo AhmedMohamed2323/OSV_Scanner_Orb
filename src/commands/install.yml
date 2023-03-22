@@ -1,15 +1,31 @@
 description: |
   Install OSV Scanner
 parameters:
-  release-url:
-    default: https://github.com/google/osv-scanner/releases/download/v1.2.0/osv-scanner_1.2.0_linux_amd64
+  osv-scanner-url:
     type: string
-steps:
-  - run:
-      environment:
-      - OSVURL: << parameters.release-url >>
-      name: OSV Scanner Download
-      command: sudo wget -O /bin/osv_scanner $OSVURL
-  - run:
-      name: Add Execute Bit
-      command: sudo chmod +x /bin/osv_scanner
+    default: https://github.com/google/osv-scanner/releases/download/v1.2.0/osv-scanner_1.2.0_linux_amd64
+
+commands:
+  osv-scan:
+    description: |
+      Runs the Google OSV Scanner on a specified lock file
+    parameters:
+      lockfile:
+        type: string
+        default: yarn.lock
+    steps:
+      - run:
+          name: Install OSV Scanner
+          command: |
+            if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+              curl -sL << parameters.osv-scanner-url >> -o osv_scanner
+            elif [[ "$OSTYPE" == "darwin"* ]]; then
+              curl -sL https://github.com/google/osv-scanner/releases/download/v1.2.0/osv-scanner_1.2.0_mac_amd64 -o osv_scanner
+            else
+              echo "Unsupported operating system"
+              exit 1
+            fi
+            chmod +x osv_scanner
+      - run:
+          name: Run OSV Scanner
+          command: ./osv_scanner --lockfile << parameters.lockfile >>
