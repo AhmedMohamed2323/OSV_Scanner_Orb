@@ -6,8 +6,10 @@ parameters:
     type: string
 steps:
   - run:
+      environment:
+      - OSVURL: << parameters.release-url >>
       name: OSV Scanner Download
-      command: sudo wget -O /bin/osv_scanner << parameters.release-url >>
+      command: sudo wget -O /bin/osv_scanner $OSVURL
   - run:
       name: Add Execute Bit
       command: sudo chmod +x /bin/osv_scanner
