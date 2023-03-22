@@ -11,4 +11,3 @@ steps:
   - run:
       name: Add Execute Bit
       command: sudo chmod +x /bin/osv_scanner
-
