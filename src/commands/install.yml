@@ -8,23 +8,23 @@ description: |
 # Configuration installs the OSV Scanner by downloading the binary file from a specified URL, saving it to the /bin directory, and setting the executable bit.
 parameters:
   release-url:
-    default: https://github.com/google/osv-scanner/releases/download/v1.2.0/osv-scanner_1.2.0_linux_amd64
+    default: "https://github.com/google/osv-scanner/releases/download/v1.2.0/osv-scanner_1.2.0_linux_amd64"
     type: string
   release-osv:
-    default: osv-scanner-install.sh
+    default: "osv-scanner-install.yaml"
     type: string
 steps:
   - run:
       environment:
-      - OSVURL: << parameters.release-url >>
+      - OSVURL: "<< parameters.release-url >>"
       name: OSV Scanner Download
-      command: sudo wget -O /bin/osv_scanner $OSVURL
+      command: "sudo wget -O /bin/osv_scanner $OSVURL"
   - run:
       name: Add Execute Bit
-      command: sudo chmod +x /bin/osv_scanner
+      command: "sudo chmod +x /bin/osv_scanner"
   - run:
       environment:
-      - ROSV: <parameters.release-osv >>
+      - ROSV: "<parameters.release-osv >>"
       name: Check for OS
-      command: sudo wget -0 /bin/osv_scanner $ROSV
+      command: "sudo wget -0 /bin/osv_scanner $ROSV"
 
