@@ -11,9 +11,10 @@ steps:
       parameters:
         file_path:
           type: string
-          default: yarn.lock
+          default: yarn.lock 
       environment:
         OSV_BIN: /bin/osv_scanner
         OSV_OUT: osv_output.txt
+        OSV_LOCK: << parameters.file_path >>
       command: |
-        $OSV_BIN --lockfile yarn.lock | tee $OSV_OUT
+        $OSV_BIN --lockfile $OSV_LOCK | tee $OSV_OUT
