@@ -23,8 +23,8 @@
   esac
 
   # Construct the URL
-  version="1.2.0"
-  url="https://github.com/google/osv-scanner/releases/download/v${version}/osv-scanner_${version}_${os}_${arch}"
+  # version="1.2.0"
+  # url="https://github.com/google/osv-scanner/releases/download/v${version}/osv-scanner_${version}_${os}_${arch}"
 
   # Download the file
   # sudo curl -LJ $url | sudo tee /scripts/osv-scanner-install.sh >
