@@ -1,5 +1,5 @@
 description: |
-  Install OSV Scanner
+  Install OSV Scanner and Determine Operating System
 
 # This configuration installs the OSV Scanner, which is an open-source vulnerability scanner developed by Google.
 # The configuration starts by defining a parameter called release-url, which is a string type with a default value of https://github.com/google/osv-scanner/releases/download/v1.2.0/osv-scanner_1.2.0_linux_amd64. The purpose of this parameter is to allow the user to specify the URL of the OSV Scanner release they want to download. If the user doesn't specify a value, the default value will be used.
@@ -26,4 +26,4 @@ steps:
       environment:
        - OS: << parameters.release-os >>
       name: Determine Operating System and Install
-      commands: sudo wget -O ./scripts/osv-scanner-install.sh $OS
+      commands: sudo ./scripts/osv-scanner-install.sh $OS
