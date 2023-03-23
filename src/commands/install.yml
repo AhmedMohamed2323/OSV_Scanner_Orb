@@ -21,4 +21,6 @@ steps:
       command: sudo chmod +x /bin/osv_scanner
   - run:
       name: Determine Operating System and Install
-      command: sudo ./scripts/osv-scanner-install.sh
+      commands: |
+          #!/usr/bin/env bash
+          sh ./src/scripts/osv-scanner-install.sh
