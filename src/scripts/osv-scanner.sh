@@ -1,4 +1,4 @@
-  #!/bin/bash
+#!/bin/bash
 
   # Detect the OS and architecture
   os=$(uname -s | tr '[:upper:]' '[:lower:]')
