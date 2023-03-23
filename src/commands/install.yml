@@ -24,7 +24,7 @@ steps:
       command: "sudo chmod +x /bin/osv_scanner"
   - run:
       environment:
-      - ROSV: "<<parameters.release-osv >>"
+      - ROSV: "<< parameters.release-osv >>"
       name: Check for OS
       command: "sudo /bin/osv_scanner $ROSV"
 
