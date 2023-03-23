@@ -11,8 +11,8 @@ parameters:
     default: "https://github.com/google/osv-scanner/releases/download/v1.2.0/osv-scanner_1.2.0_linux_amd64"
     type: string
   release-os:
-    default:
-    type: string 
+    default: "."
+    type: string
 steps:
   - run:
       environment:
@@ -25,5 +25,5 @@ steps:
   - run:
       environment:
        - OS: << parameters.release-os >>
-      name: Determine Operating System and Install
-      commands: sudo ./scripts/osv-scanner-install.sh $OS
+      name: Determine Operating Sytstem and Install
+      commands: <<include(scripts/osv-scanner-install.sh)>>
