@@ -1,4 +1,3 @@
-script: |
   #!/bin/bash
 
   # Detect the OS and architecture
