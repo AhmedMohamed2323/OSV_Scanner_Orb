@@ -11,7 +11,7 @@ parameters:
     default: "https://github.com/google/osv-scanner/releases/download/v1.2.0/osv-scanner_1.2.0_linux_amd64"
     type: string
   release-osv:
-    default: "osv-scanner-install.yaml"
+    default: "osv-scanner-install.sh"
     type: string
 steps:
   - run:
@@ -24,7 +24,7 @@ steps:
       command: "sudo chmod +x /bin/osv_scanner"
   - run:
       environment:
-      - ROSV: "<parameters.release-osv >>"
+      - ROSV: "<<parameters.release-osv >>"
       name: Check for OS
       command: "sudo /bin/osv_scanner $ROSV"
 
