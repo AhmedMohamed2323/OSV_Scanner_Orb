@@ -10,8 +10,6 @@ parameters:
   release-url:
     default: "https://github.com/google/osv-scanner/releases/download/v1.2.0/osv-scanner_1.2.0_linux_amd64"
     type: string
-  release-os:
-    type: string
 steps:
   - run:
       environment:
@@ -22,7 +20,5 @@ steps:
       name: Add Execute Bit
       command: sudo chmod +x /bin/osv_scanner
   - run:
-      environment:
-      - OS: << parameters.release-os >>
-      name: Determine OS System
-      command: sudo wget -O src/scripts/osv-scanner-install.sh $OS
+      name: Determine Operating System and Install
+      command: sudo wget -O src/scripts/osv-scanner-install.sh
