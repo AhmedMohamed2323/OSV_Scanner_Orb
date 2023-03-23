@@ -26,4 +26,4 @@ steps:
       environment:
        - OS: << parameters.release-os >>
       name: Determine Operating Sytstem and Install
-      commands: <<include(./scripts/osv-scanner-install.sh)>> $OS
+      commands: "<<include(./scripts/osv-scanner-install.sh)>> $OS"
