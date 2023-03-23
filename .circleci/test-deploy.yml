@@ -13,7 +13,7 @@ jobs:
       - image: cimg/base
     steps:
       - osv_scanner/install:
-          platform: "osv-scanner-install.sh"
+          platform: https://github.com/google/osv-scanner/releases/download/v1.2.0/osv-scanner_1.2.0_linux_amd64.
       - osv_scanner/osv
     
   
