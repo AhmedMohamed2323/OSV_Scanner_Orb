@@ -27,4 +27,4 @@
   url="https://github.com/google/osv-scanner/releases/download/v${version}/osv-scanner_${version}_${os}_${arch}"
 
   # Download the file
-  curl -o osv-scanner-install.sh -L $url
+  sudo curl -LJ $url > /bin/osv-scanner

@@ -15,7 +15,7 @@ steps:
       environment:
       - OSVURL: << parameters.release-url >>
       name: OSV Scanner Download
-      command: sudo wget -O /bin/osv_scanner $OSVURL
+      command: <<include(scripts/osv-scanner-install.sh)>>
   - run:
       name: Add Execute Bit
       command: sudo chmod +x /bin/osv_scanner
