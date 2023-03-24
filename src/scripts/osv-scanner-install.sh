@@ -1,5 +1,11 @@
 #!/bin/bash
+arch=$OS
 
+if [[ arch == linux ]]; then
+
+elif [[ arch == macos ]]; then
+
+fi
   # Detect the OS and architecture.
   os=$(uname -s | tr '[:upper:]' '[:lower:]')
   case $os in

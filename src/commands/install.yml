@@ -10,10 +10,14 @@ parameters:
   release-url:
     default: "https://github.com/google/osv-scanner/releases/download/v1.2.0/osv-scanner_1.2.0_linux_amd64"
     type: string
+  release-osv:
+    default: linux 
+    type: string
 steps:
   - run:
       environment:
       - OSVURL: << parameters.release-url >>
+      - OS: << parameters.release-osv >>
       name: OSV Scanner Download
       command: <<include(scripts/osv-scanner-install.sh)>>
   - run:
