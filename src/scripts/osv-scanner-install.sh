@@ -1,11 +1,6 @@
 #!/bin/bash
-<< arch=$OS >>
 
-if [[ $arch == linux ]]; then
-
-elif [[ $arch == macos ]]; then
-
-fi
+if [[ $OS == linux ]]; then
   # Detect the OS and architecture.
   os=$(uname -s | tr '[:upper:]' '[:lower:]')
   case $os in
@@ -35,5 +30,9 @@ fi
   # Download the file
   # sudo curl -LJ $url | sudo tee /scripts/osv-scanner-install.sh >
   sudo wget -O /bin/osv_scanner "$url"
+
+elif [[ $OS == macos ]]; then
+  echo "its mac"
+fi
 
  
