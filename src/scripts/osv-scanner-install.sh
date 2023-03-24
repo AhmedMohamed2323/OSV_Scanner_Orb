@@ -1,9 +1,9 @@
 #!/bin/bash
-arch=$OS
+<< arch=$OS >>
 
-if [[ arch == linux ]]; then
+if [[ $arch == linux ]]; then
 
-elif [[ arch == macos ]]; then
+elif [[ $arch == macos ]]; then
 
 fi
   # Detect the OS and architecture.
