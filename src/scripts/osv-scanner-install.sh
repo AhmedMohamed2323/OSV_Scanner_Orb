@@ -35,12 +35,3 @@ elif [[ $OS == macos ]]; then
   echo "its mac"
 fi
 
-set -e
-
-VERSION=$1
-OSVURL="https://github.com/google/osv-scanner/releases/download/${VERSION}/osv-scanner_${VERSION}_linux_amd64"
-
-curl -L $OSVURL --output osv_scanner
-sudo mv osv_scanner /bin/osv_scanner
-
-echo "OSV Scanner ${VERSION} installed successfully"
