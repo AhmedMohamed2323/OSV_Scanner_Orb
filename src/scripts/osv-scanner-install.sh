@@ -28,7 +28,7 @@
 
   # prompt user for download version
   echo "What version would you like to download?"
-  read r- version
+  read -r version
   if [[ $version =~ ^[0-9].[0-9].[0-9]$ ]]
   then
     # Download the file
