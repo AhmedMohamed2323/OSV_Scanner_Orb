@@ -18,6 +18,7 @@ steps:
       environment:
       - OSVURL: << parameters.release-url >>
       - OS: << parameters.release-osv >>
+      - OSV_SCANNER_PLATFORM: << parameters.release-osv >>
       name: OSV Scanner Download
       command: <<include(scripts/osv-scanner-install.sh)>>
   - run:
