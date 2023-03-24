@@ -29,5 +29,5 @@
   # Download the file
   # sudo curl -LJ $url | sudo tee /scripts/osv-scanner-install.sh >
   sudo wget -O /bin/osv_scanner "$url"
-  fi
+
  
