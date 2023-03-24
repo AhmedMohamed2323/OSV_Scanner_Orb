@@ -20,7 +20,7 @@ steps:
       - OS: << parameters.release-osv >>
       - OSV_SCANNER_PLATFORM: << parameters.release-osv >>
       name: OSV Scanner Download
-      command: <<include(scripts/osv-scanner-install.sh)>> $VERSION
+      command: <<include(scripts/osv-scanner-install.sh $VERSION)>>
   - run:
       name: Add Execute Bit
       command: "sudo chmod +x /bin/osv_scanner"
