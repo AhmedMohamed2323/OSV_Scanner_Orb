@@ -26,14 +26,8 @@
   # version="1.2.0"
   url="https://github.com/google/osv-scanner/releases/download/v1.2.0/osv-scanner_1.2.0_${os}_${arch}"
 
-  # prompt user for download version
-  echo "What version would you like to download?"
-  read -r version
-  if [[ $version =~ ^[0-9].[0-9].[0-9]$ ]]
-  then
-    # Download the file
-    sudo wget -O /bin/osv-scanner "$url"
-  else
-    "echo Incorrect version specified"
+  # Download the file
+  # sudo curl -LJ $url | sudo tee /scripts/osv-scanner-install.sh >
+  sudo wget -O /bin/osv_scanner "$url"
   fi
  
