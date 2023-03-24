@@ -12,7 +12,7 @@ jobs:
     docker:
       - image: cimg/go:1.20.1
     enironment:
-    OSV_SCANNER_PlATFORM: linux
+    OSV_SCANNER_PLATFORM: linux
     steps:
       - osv_scanner/install
       - osv_scanner/osv
