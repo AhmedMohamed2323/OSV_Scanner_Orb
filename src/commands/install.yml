@@ -22,7 +22,7 @@ steps:
       - OSVVERSION: << parameters.release-version >>
       - OSVURL: << parameters.release-url >>
       name: OSV Scanner Download
-      command: << include(scripts/osv-scanner-install.sh $OSV_VERSION) >> 
+      command: << include(scripts/osv-scanner-install.sh $OSV_VERSION) >>
   - run:
       name: Add Execute Bit
       command: "sudo chmod +x /bin/osv_scanner"
