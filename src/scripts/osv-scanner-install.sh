@@ -3,7 +3,7 @@
 if [ -z "$OSVVERSION" ]; then
   version="1.2.0"
 else
-  version="$OSVERSION"
+  version="$OSVVERSION"
 fi
 
   # Detect the OS and architecture.
