@@ -1,9 +1,9 @@
 #!/bin/bash
 
-if [ -z "$1" ]; then
+if [ -z "$OSVVERSION" ]; then
   version="1.2.0"
 else
-  version="$1"
+  version="$OSVERSION"
 fi
 
   # Detect the OS and architecture.
