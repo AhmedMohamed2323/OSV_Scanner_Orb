@@ -1,6 +1,11 @@
 #!/bin/bash
 
-if [[ $OS == linux ]]; then
+if [ -z "$1" ]; then
+  version="1.2.0"
+else
+  version="$1"
+fi
+
   # Detect the OS and architecture.
   os=$(uname -s | tr '[:upper:]' '[:lower:]')
   case $os in
@@ -17,6 +22,9 @@ if [[ $OS == linux ]]; then
       aarch64)
           arch="arm64"
           ;;
+      arm64)
+          arch="arm64"
+          ;;
       *)
           echo "Unsupported architecture: $arch"
           exit 1
@@ -25,13 +33,11 @@ if [[ $OS == linux ]]; then
 
   # Construct the URL
   # version="1.2.0"
-  url="https://github.com/google/osv-scanner/releases/download/v1.2.0/osv-scanner_1.2.0_${os}_${arch}"
+  url="https://github.com/google/osv-scanner/releases/download/v${version}/osv-scanner_${version}_${os}_${arch}"
 
+echo $url
   # Download the file
   # sudo curl -LJ $url | sudo tee /scripts/osv-scanner-install.sh >
   sudo wget -O /bin/osv_scanner "$url"
 
-elif [[ $OS == macos ]]; then
-  echo "its mac"
-fi
 
