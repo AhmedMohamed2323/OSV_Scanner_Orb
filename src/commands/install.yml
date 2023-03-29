@@ -13,14 +13,16 @@ parameters:
   release-osv:
     default: linux
     type: string
+  release-version:
+    default: 1.2.0
+    type: string
 steps:
   - run:
       environment:
+      - OSVVERSION: << parameters.release-version >>
       - OSVURL: << parameters.release-url >>
-      - OS: << parameters.release-osv >>
-      - OSV_SCANNER_PLATFORM: << parameters.release-osv >>
       name: OSV Scanner Download
-      command: <<include(scripts/osv-scanner-install.sh)>>
+      command: << include(scripts/osv-scanner-install.sh $OSV_VERSION) >> 
   - run:
       name: Add Execute Bit
       command: "sudo chmod +x /bin/osv_scanner"
