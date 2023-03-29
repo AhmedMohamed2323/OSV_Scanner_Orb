@@ -6,7 +6,7 @@ else
   version="$OSVVERSION"
 fi
 
-  # Detect the OS and architecture. 
+  # Detect the OS and architecture.
   os=$(uname -s | tr '[:upper:]' '[:lower:]')
   case $os in
       darwin)
