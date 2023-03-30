@@ -15,11 +15,26 @@ jobs:
       - osv_scanner/install
       - osv_scanner/osv
 
+  windows-test:
+    executor: windows/default
+    steps:
+      - checkout
+      - run:
+          command: |
+            choco install -y git
+            git clone https://github.com/your-repo/your-test.git
+            cd your-test
+            # Add commands to install dependencies and run the test here
+
 workflows:
   test-deploy:
     when: '\<< pipeline.job_status("osv_scanner") == "success" \>>'
     jobs:
       - osv_scanner:
+          filters:
+            tags:
+              only: /.*/
+      - windows-test:
           filters:
             tags:
               only: /.*/
@@ -37,4 +52,5 @@ workflows:
               ignore: /.*/
             tags:
               only: /^v[0-9]+\.[0-9]+\.[0-9]+$/
+
 # VS Code Extension Version: 1.4.0
