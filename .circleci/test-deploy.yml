@@ -10,11 +10,11 @@ filters: &filters
 jobs:
   osv_scanner:
     macos:
-      - xcode: "14.2.0"
+      xcode: "14.2.0"
     steps:
       - checkout
       - osv_scanner/install
-      - osv_scanner/osv
+      - osv_scanner/osv 
 
 workflows:
   test-deploy:
