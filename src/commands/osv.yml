@@ -21,7 +21,7 @@ steps:
  - run:
       name: Run osv and save output
       environment:
-        OSV_BIN: /bin/osv_scanner
+        OSV_BIN: /tmp/osv_scanner
         OSV_OUT: osv_output.txt
         OSV_LOCK: << parameters.lockpath >>
       command: |

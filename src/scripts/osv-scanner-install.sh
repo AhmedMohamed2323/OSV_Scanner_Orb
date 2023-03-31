@@ -37,6 +37,6 @@ fi
 
   # Download the file
 
-  sudo wget -O /bin/osv_scanner "$url"
+  wget -O /tmp/osv_scanner "$url"
 
 
