@@ -38,5 +38,6 @@ fi
   # Download the file
 
   wget -O /tmp/osv_scanner "$url"
+  chmod +x /tmp/osv_scanner
 
 
