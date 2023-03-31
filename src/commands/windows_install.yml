@@ -1,7 +1,5 @@
 description: Install on OS Scanner on Windows
 
-version: 2.1
-
 jobs:
   steps:
     - run: "Write-Host 'Hello, Windows'"
