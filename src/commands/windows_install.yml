@@ -4,7 +4,7 @@ steps:
   - run:
       name:
       command: "Write-Host 'Hello, Windows'"
-      
-  - run: 
+
+  - run:
       name: OSV Scanner Download
       command: <<include(scripts/osv-scanner-install.ps)>>
