@@ -9,11 +9,14 @@ filters: &filters
 
 jobs:
   osv_scanner:
-    docker:
-      - image: cimg/go:1.20.1
+    machine:
+      - image: ubuntu-2004:2023.02.1
     steps:
+      - checkout
       - osv_scanner/install
       - osv_scanner/osv
+      - run: sudo apt-get update && sudo apt-get install -y cowsay
+      - run: cowsay Continuous Integration Rocks!
 
 workflows:
   test-deploy:
