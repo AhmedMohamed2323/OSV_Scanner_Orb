@@ -25,7 +25,7 @@ jobs:
       resource_class: windows.medium
       shell: powershell.exe -ExecutionPolicy Bypass
     steps:
-      - run: osv_scanner_windows
+      - osv_scanner/windows_install
   
 workflows:
   test-deploy:
