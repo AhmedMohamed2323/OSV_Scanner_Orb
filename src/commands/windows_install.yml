@@ -1,14 +1,8 @@
 description: Install on OS Scanner on Windows
 
 version: 2.1
-orbs:
-  win: circleci/windows@4.1
+
 jobs:
-  build:
-    executor: win/server-2019
-    steps:
-     - run: "Write-Host 'Hello, Windows'"
-workflows:
-  my-workflow:
-    jobs:
-      - build
+  steps:
+    - run: "Write-Host 'Hello, Windows'"
+

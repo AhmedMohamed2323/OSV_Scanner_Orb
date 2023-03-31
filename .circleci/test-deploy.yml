@@ -18,12 +18,25 @@ jobs:
       - checkout
       - osv_scanner/install
       - osv_scanner/osv
+  
+  osv_scanner_windows:
+    machine:
+      image: 'windows-server-2019-vs2019:2022.08.1'
+      resource_class: windows.medium
+      shell: powershell.exe -ExecutionPolicy Bypass
+      steps:
+      - run: osv_scanner_windows
+  
 workflows:
   test-deploy:
     when: '\<< pipeline.job_status("osv_scanner") == "success" \>>'
     jobs:
       - osv_scanner:
           filters:
+            tags:
+              only: /.*/
+      - osv_scanner_windows:
+          filters: 
             tags:
               only: /.*/
       - orb-tools/pack:
