@@ -1,6 +1,5 @@
 description: Install on OS Scanner on Windows
 
-jobs:
-  steps:
-    - run: "Write-Host 'Hello, Windows'"
+steps:
+  - run: "Write-Host 'Hello, Windows'"
 
