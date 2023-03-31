@@ -17,5 +17,5 @@ steps:
       name: OSV Scanner Download
       shell: pwsh
       command: |
-        ./src/scripts/osv-scanner-install.ps1
+        C:\Users\circleci\project\src\scripts\osv-scanner-install.ps1
 
