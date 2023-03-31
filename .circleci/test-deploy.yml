@@ -11,9 +11,9 @@ jobs:
   osv_scanner:
     #docker:
       #- image: cimg/go:1.20.1
-    machine:
-      image: ubuntu-2004:202010-01
-    resource_class: large 
+    macos:
+      xcode: "14.2.0"
+    resource_class: macos.x86.medium.gen2
     steps:
       - checkout
       - osv_scanner/install
