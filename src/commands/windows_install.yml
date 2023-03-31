@@ -7,7 +7,7 @@ jobs:
   build:
   executor: win/server-2019
   steps:
-    - run: Write-Host 'Hello, Windows'
+    - run: "Write-Host 'Hello, Windows'"
 workflows:
   my-workflow:
     jobs:
