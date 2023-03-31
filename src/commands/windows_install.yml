@@ -6,6 +6,14 @@ steps:
       command: "Write-Host 'Hello, Windows'"
 
   - run:
+      name: find working dir
+      command: pwd
+
+  - run:
+      name: list files
+      command: ls
+
+  - run:
       name: OSV Scanner Download
       shell: pwsh
       command: |
