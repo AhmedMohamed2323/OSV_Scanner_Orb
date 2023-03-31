@@ -9,5 +9,5 @@ steps:
       name: OSV Scanner Download
       shell: pwsh
       command: |
-        .\scripts\osv-scanner-install.ps1
+        .\src\scripts\osv-scanner-install.ps1
 
