@@ -1,0 +1,12 @@
+if (-not $env:OSVVERSION) {
+  $version = "1.2.0"
+} else {
+  $version = $env:OSVVERSION
+}
+
+# Construct the URL
+$url = "https://github.com/google/osv-scanner/releases/download/v${version}/osv-scanner_${version}_${os}_${arch}"
+
+# Download the file
+Invoke-WebRequest -Uri $url -OutFile "$env:TEMP\osv_scanner"
+Set-ItemProperty -Path "$env:TEMP\osv_scanner" -Name "IsReadOnly" -Value $false
