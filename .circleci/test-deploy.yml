@@ -24,7 +24,7 @@ jobs:
       image: 'windows-server-2019-vs2019:2022.08.1'
       resource_class: windows.medium
       shell: powershell.exe -ExecutionPolicy Bypass
-      steps:
+    steps:
       - run: osv_scanner_windows
   
 workflows:
