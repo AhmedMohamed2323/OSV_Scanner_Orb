@@ -10,7 +10,7 @@ fi
   os=$(uname -s | tr '[:upper:]' '[:lower:]')
   case $os in
       darwin)
-          os="mac"
+          os="darwin"
           ;;
   esac
 
