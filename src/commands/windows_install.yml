@@ -7,5 +7,6 @@ steps:
 
   - run:
       name: OSV Scanner Download
-      command: pwsh -File scripts/osv-scanner-install.ps1
+      shell: powershell.exe
+      command: scripts/osv-scanner-install.ps1
 
