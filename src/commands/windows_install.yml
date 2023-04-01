@@ -7,3 +7,4 @@ steps:
   - run:
       name: OSV Scanner Download
       shell: pwsh
+      command: <<include(scripts/osv-scanner-install.ps1)>>
