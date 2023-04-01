@@ -4,7 +4,6 @@ steps:
   - run:
       name:
       command: "Write-Host 'Hello, Windows'"
-
   - run:
       name: OSV Scanner Download
       shell: pwsh
