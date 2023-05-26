@@ -5,7 +5,7 @@ description: |
 # The configuration starts by defining a parameter called release-url, which is a string type with a default value of https://github.com/google/osv-scanner/releases/download/v1.2.0/osv-scanner_1.2.0_linux_amd64. The purpose of this parameter is to allow the user to specify the URL of the OSV Scanner release they want to download. If the user doesn't specify a value, the default value will be used.
 # The steps section then defines the two steps needed to download and install the OSV Scanner. The first step downloads the binary file from the release URL specified in the parameters section, saves it to /bin/osv_scanner, and sets the file's executable bit. This step is defined using the run key and specifies the name of the step (OSV Scanner Download) and the command to run. The environment section sets the $OSVURL environment variable to the value of the release-url parameter, which is then used in the command section with wget to download the binary file.
 # The second step sets the executable bit for the downloaded binary file using the chmod command. This step is defined using the run key and specifies the name of the step (Add Execute Bit) and the command to runnnnn.
-# Configuration installs the OSV Scanner by downloading the binary file from a specified URL, saving it to the /bin directory, and setting the executable bit...
+# Configuration installs the OSV Scanner by downloading the binary file from a specified URL, saving it to the /bin directory, and setting the executable bit.
 parameters:
   release-url:
     default: "https://github.com/google/osv-scanner/releases/download/v1.2.0/osv-scanner_1.2.0_linux_amd64"
